@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+  <a routerLink="home" class="navbar-brand" style="font-size: 30px; color: orange; font-weight: bold">
+    <fa name="music" animation="spin"></fa>
+    MusicHouse
+    <fa name="music" animation="spin"></fa>
+    <div id="bars" >
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </a>
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse"
+  style="font-size: 16px">
+    <div class="offset-1"></div>
+    <div class="navbar-nav">
+      <a routerLink="home" class="nav-item nav-link active mr-3">Trang Chủ</a>
+<!--      <a href="#" class="nav-item nav-link">My Profile</a>-->
+      <!--Vi du ve trang chi tiet bai hat-->
+<!--      <a routerLink="home/song/play/:id" class="nav-item nav-link">Detail-Song</a>-->
+      <!---->
+      <a href="#C1" class="nav-item nav-link mr-3">Top Bài Hát</a>
+      <a href="#C2" class="nav-item nav-link mr-3">Top Like</a>
+      <a routerLink="list-singer" class="nav-item nav-link mr-3">Ca Sĩ</a>
+      <a routerLink="about-us" class="nav-item nav-link mr-3">Liên Hệ</a>
+      <div class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle btn btn-outline-warning"
+           data-toggle="dropdown" *ngIf="authority">My Playlist</a>
+        <div class="dropdown-menu">
+          <a routerLink="list-song" class="dropdown-item">Danh Sách Bài Hát</a>
+          <a routerLink="list-playlist" class="dropdown-item">Danh Sách PlayList</a>
+          <a routerLink="list-singer-users" class="dropdown-item">Danh Sách Ca Sĩ</a>
+          <a routerLink="create-song" class="dropdown-item">Thêm Bài Hát</a>
+          <a routerLink="create-playlist" class="dropdown-item">Thêm PlayList</a>
+          <a routerLink="create-singer" class="dropdown-item">Thêm Ca Sĩ</a>
+        </div>
+      </div>
+    </div>
+<!--    <app-search (press)="update($event)"></app-search>-->
+    <div class="navbar-nav">
+      <a routerLink="auth/login" class="nav-item nav-link btn btn-outline-primary"
+         *ngIf="!authority">
+        Đăng Nhập
+      </a>
+      <a routerLink="register" class="nav-item nav-link" *ngIf="!authority">
+        Đăng Ký
+      </a>
+      <ul *ngIf="authority">
+        <app-user></app-user>
+      </ul>
+    </div>
+  </div>
+</nav>

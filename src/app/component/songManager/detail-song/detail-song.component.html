@@ -1,0 +1,86 @@
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="col" *ngIf="song">
+    <div class="header-song">
+      <div class="row">
+        <div class="col-sm-2">
+          <div class="ih-item circle effect2 left_to_right">
+            <a id="plays_btn">
+              <div class="img"><img src="{{song.avatarUrl}}" alt="{{song.nameSong}}"></div>
+              <div class="info"><h3>Play Music</h3>
+                <p>Enjoy Song</p></div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h3 class="color-letter">Bài hát: {{song.nameSong}}</h3>
+          <p class="color-letter">Ca sĩ: <a class="not-underlined">{{song.singer}}</a></p><br>
+          <p class="color-letter">Thể loại: <a class="not-underlined">{{song.category}}</a></p>
+        </div>
+        <div class="col-xl-8"></div>
+        <div class="col-xl-2" style="color: white"><i class="fas fa-play">{{song.listenSong}}</i></div>
+        <div class="col-xl-2" style="color: white"><i class="fas fa-heart">{{song.likeSong}}</i></div>
+      </div>
+      <div class="col-12 mb-2 mt-4">
+        <audio controls style="width: 100%; border-radius: 5px" loop autoplay>
+          <source [src]=song.mp3Url style="width: 350px; height: auto" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <hr>
+  <div class="row" style="padding:10px 35px" *ngIf="song">
+<!--    <div class="col-md-2">-->
+<!--      <a routerLink="#"><i class="fas fa-folder-plus"> Add to playlist</i></a>-->
+<!--      &lt;!&ndash;      <ng-template #content let-c="close" let-d="dismiss">&ndash;&gt;-->
+<!--      &lt;!&ndash;        <div class="modal-header">&ndash;&gt;-->
+<!--      &lt;!&ndash;          <h4 class="modal-title" id="modal-basic-title">PLAYLIST</h4>&ndash;&gt;-->
+<!--      &lt;!&ndash;          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">&ndash;&gt;-->
+<!--      &lt;!&ndash;            <span aria-hidden="true">&times;</span>&ndash;&gt;-->
+<!--      &lt;!&ndash;          </button>&ndash;&gt;-->
+<!--      &lt;!&ndash;        </div>&ndash;&gt;-->
+<!--      &lt;!&ndash;        <div class="modal-body">&ndash;&gt;-->
+<!--      &lt;!&ndash;          <ul><a class="list-play-list" routerLink="#">Name Playlist</a></ul>&ndash;&gt;-->
+<!--      &lt;!&ndash;        </div>&ndash;&gt;-->
+<!--      &lt;!&ndash;        <div class="modal-footer">&ndash;&gt;-->
+<!--      &lt;!&ndash;        </div>&ndash;&gt;-->
+<!--      &lt;!&ndash;      </ng-template>&ndash;&gt;-->
+<!--    </div>-->
+    <div class="col-md-1">
+      <button type="button" class="btn btn-outline-primary" (click)="likeCount(song.id)"><i
+        class="fas fa-thumbs-up"></i></button>
+    </div>
+  </div>
+  <hr>
+  <div class="row col-md-12" *ngIf="song">
+    <div class="row col-md-12" style="padding:10px 35px">
+      <div class="col-md-1">
+        <img src="{{song.avatarUrl}}" alt="{{song.nameSong}}" class="avatar">
+      </div>
+      <div class="col-md-2">
+        <p>Name Song :</p>
+        <a routerLink="#">{{song.singer}}</a>
+      </div>
+      <div class="card-footer row" style="padding:10px 35px">
+        <div class="col-md-12"><h2>Lyrics: </h2></div>
+        <div class="col-md-12">
+          <p>{{song.lyrics}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row col-md-12" style="padding:10px 35px">
+    <div class="col-md-12">
+      <h2>Comments: </h2>
+    </div>
+    <hr>
+    <div id="fb-root"></div>
+    <div class="fb-comments col-md-8" data-href="https://www.facebook.com/tinhnt020795" data-width=""
+         data-numposts="5"></div>
+  </div>
+</div>

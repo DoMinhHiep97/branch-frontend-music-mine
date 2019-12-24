@@ -1,0 +1,104 @@
+<app-title-page [content]="title"></app-title-page>
+<div class="card col-md-4 offset-4">
+  <div class="card-body">
+    <div id="loginbox" class="mainbox">
+      <div class="panel panel-info">
+
+        <div class="panel-body" style="padding-top:30px">
+          <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+          <form class="form-inline" name="form" (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
+            <div *ngIf="isRegister; else signupForm">
+              <p class="message-signup" style="color: limegreen">Your registration is successful. Please login!</p>
+            </div>
+
+            <ng-template #signupForm>
+              <form name="form" (ngSubmit)="f.form.valid && RegisterAccount()" #f="ngForm" novalidate>
+
+                <div style="margin-bottom: 25px" class="form-group">
+                  <label class="mr-5">Name:</label>
+                  <input type="text" class="form-control"
+                         name="Name" placeholder="Name"
+                         [(ngModel)]="form.name" #name="ngModel" required/>
+                  <div *ngIf="f.submitted && name.invalid" class="offset-3">
+                    <div *ngIf="name.errors.required">
+                      <h6 style="color: red; font-size: 80%"><i>Name is required</i></h6>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="margin-bottom: 25px" class="form-group">
+                  <label class="mr-3">UserName:</label>
+                  <input type="text" class="form-control"
+                         name="username" placeholder="User Name"
+                         [(ngModel)]="form.username" #username="ngModel" required/>
+                  <div *ngIf="f.submitted && username.invalid" class="offset-3">
+                    <div *ngIf="username.errors.required">
+                      <h6 style="color: red; font-size: 80%"><i>Username is required</i></h6>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="margin-bottom: 25px" class="form-group">
+                  <label class="mr-5">Email:</label>
+                  <input type="text" class="form-control"
+                         name="email" placeholder="Email"
+                         [(ngModel)]="form.email" #email="ngModel" required email/>
+                  <div *ngIf="f.submitted && email.invalid" class="offset-3">
+                    <div *ngIf="email.errors.required">
+                      <h6 style="color: red; font-size: 80%"><i>Email is required</i></h6>
+                    </div>
+                    <div *ngIf="email.errors.email">
+                      <h6 style="color: red; font-size: 80%"><i>Email must be a valid email address</i></h6>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="margin-bottom: 25px" class="form-group">
+                  <label class="mr-3">Password:</label>
+                  <input type="password" class="form-control"
+                         name="password" placeholder="Password"
+                         [(ngModel)]="form.password" #password="ngModel"
+                         required minlength="6"/>
+                  <div *ngIf="f.submitted && password.invalid" class="offset-3">
+                    <div *ngIf="password.errors.required">
+                      <h6 style="color: red; font-size: 80%"><i>Password is required</i></h6>
+                    </div>
+                    <div *ngIf="password.errors.minlength">
+                      <h6 style="color: red; font-size: 80%"><i>Password must be at least 6 characters</i></h6>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+                <!--                <div style="margin-bottom: 25px" class="form-group">-->
+                <!--                  <input type="file" (change)="selectAvatar($event)" placeholder="Choose Avatar">-->
+                <!--                  <button type="button" class="btn btn-success mt-3" (click)="upload()">Save</button>-->
+                <!--                  <div>{{currentFileUpload.url}}</div>-->
+                <!--                </div> &lt;!&ndash;Choose Avatar&ndash;&gt;-->
+
+
+                <div class="form-group">
+                  <button class="btn btn-info btn-block my-4" type="submit">Tạo tài khoản</button>
+                </div>
+              </form>
+            </ng-template>
+            <div class="form-group" style="margin-bottom: 10px">
+              <app-upload-avatar (giveURLtoCreate)="onAvatar($event)"></app-upload-avatar>
+            </div>
+            <br>
+            <div class="panel-footer">
+              <div style="position: relative; top:-10px">
+                Bạn đã có tài khoản?<a routerLink="/auth/login"> Login Now</a></div>
+            </div> <!--Header-->
+          </form>
+        </div> <!--Body-->
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<br>
+<app-footer></app-footer>

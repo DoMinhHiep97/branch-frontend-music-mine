@@ -1,0 +1,14 @@
+<div class="nav-item dropdown btn btn-outline-info dropleft">
+  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+    <img [src]=userInfor.avatarUrl style="height: 50px ; width: 50px">
+    {{userInfor.name}}
+  </a>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" [routerLink]="['/auth/dashboard']">Profile</a>
+<!--    <a href="#" class="dropdown-item">Profile</a>-->
+    <a class="dropdown-item" [routerLink]="['/auth/updateuser']">Change Information</a>
+    <a class="dropdown-item" [routerLink]="['/auth/changepass']">Change Password</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" (click)="logout()">Đăng Xuất</a>
+  </div>
+</div>

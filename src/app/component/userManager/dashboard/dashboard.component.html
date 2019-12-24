@@ -1,0 +1,44 @@
+<app-title-page [content]="title"></app-title-page>
+<div class="container">
+<!--  <table class="table" *ngIf="userInfor">-->
+<!--    <thead class="thead-dark">-->
+<!--    <tr>-->
+<!--      <th scope="col">avatar</th>-->
+<!--      <th scope="col">name</th>-->
+<!--      <th scope="col">email</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+
+<!--    <tbody>-->
+<!--    <tr>-->
+<!--      <td><img [src]=userInfor.avatarUrl style="width: 40px; height: 40px"></td>-->
+<!--      <td>{{userInfor.name}}</td>-->
+<!--      <td>{{userInfor.email}}</td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
+  <div class="container mt-3 mb-3" *ngIf="userInfor">
+    <div class="card offset-4 col-4">
+      <div class="text-center">
+        <div class="media-body">
+          <img [src]=userInfor.avatarUrl alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:120px;">
+        </div>
+        <hr>
+<!--        <h5 class="mb-2 mt-2">ID: <span style="font-weight: bold;color: dodgerblue">-->
+<!--          {{userInfor.id}}</span>-->
+<!--        </h5>-->
+        <hr>
+        <h5 class="mb-2 mt-2">Name: <span style="font-weight: bold;color: dodgerblue">
+          <br>
+          {{userInfor.name}}</span>
+        </h5>
+        <hr>
+        <h5 class="mb-3">Email: <span style="font-weight: bold;color: dodgerblue">
+          {{userInfor.email}}</span>
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
